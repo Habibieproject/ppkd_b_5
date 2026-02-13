@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_b_5/day_7/day_7.dart';
+import 'package:ppkd_b_5/day_8/day_8.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Color(0xff09637E)),
       ),
-      home: Day7Screen(),
+      home: Day8Screen(),
       // home: const MyHomePage(title: 'PPKD B5'),
     );
   }
