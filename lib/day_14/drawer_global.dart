@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ppkd_b_5/day_14/list.dart';
 import 'package:ppkd_b_5/day_14/list_map.dart';
 import 'package:ppkd_b_5/day_14/model_ui.dart';
+import 'package:ppkd_b_5/day_15/day_15.dart';
 import 'package:ppkd_b_5/extension/navigator.dart';
 
 class DrawerGlobal extends StatefulWidget {
@@ -30,6 +31,7 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
     ListViewBuilderDay14List(),
     ListMapScreen(),
     ModelListViewBuilderDay14(),
+    TextFormDay15(),
   ];
 
   @override
@@ -66,6 +68,12 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
               title: Text("List Map in ListView Builder"),
               onTap: () {
                 ontapItemDrawer(2);
+              },
+            ),
+            ListTile(
+              title: Text("Text Form Validator"),
+              onTap: () {
+                ontapItemDrawer(3);
               },
             ),
           ],
