@@ -3,6 +3,8 @@ import 'package:ppkd_b_5/day_14/list.dart';
 import 'package:ppkd_b_5/day_14/list_map.dart';
 import 'package:ppkd_b_5/day_14/model_ui.dart';
 import 'package:ppkd_b_5/day_15/day_15.dart';
+import 'package:ppkd_b_5/day_16/database/preference.dart';
+import 'package:ppkd_b_5/day_16/view/login_screen.dart';
 import 'package:ppkd_b_5/extension/navigator.dart';
 
 class DrawerGlobal extends StatefulWidget {
@@ -74,6 +76,13 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
               title: Text("Text Form Validator"),
               onTap: () {
                 ontapItemDrawer(3);
+              },
+            ),
+            ListTile(
+              title: Text("Logout"),
+              onTap: () {
+                PreferenceHandler().deleteIsLogin();
+                context.pushAndRemoveAll(LoginScreenDay16());
               },
             ),
           ],
