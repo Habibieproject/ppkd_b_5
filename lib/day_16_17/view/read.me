@@ -1,0 +1,82 @@
+NOTE
+
+1. Buat Database (DBHelper)
+2. Buat Model untuk Database
+3. Buat function CRUD atau logic lainnya
+4. Buat UI tanpa function
+5. Integrasi UI dengan function
+
+Berikut penjabaran flow singkat itu (Dart/Flutter + pub) supaya peserta gampang “ngeh” urutannya. Intinya: bangun pondasi data dulu (DB + model + logic), baru UI, lalu disambungkan.
+
+1) Buat Database (DBHelper)
+Tujuan: menyiapkan gateway ke database: buka koneksi, buat tabel, versi DB, dan helper query dasar.
+
+Yang biasanya ada di DBHelper:
+
+Inisialisasi DB: lokasi file DB, nama DB, versi.
+onCreate: jalankan SQL CREATE TABLE ....
+onUpgrade: migrasi saat versi naik.
+Fungsi utilitas: database getter (singleton), close().
+Gotcha:
+
+Pastikan DB dibuka sekali (singleton) supaya tidak boros resource.
+Definisikan nama tabel & kolom sebagai konstanta biar konsisten.
+
+2) Buat Model untuk Database
+Tujuan: merepresentasikan 1 baris data sebagai object Dart, supaya tidak “main map” di mana-mana.
+
+Isi model yang penting:
+
+Field sesuai kolom DB (mis. id, title, createdAt).
+toMap() → untuk insert/update.
+fromMap(Map) → untuk hasil query().
+Gotcha:
+
+Kolom id biasanya INTEGER PRIMARY KEY AUTOINCREMENT, jadi saat insert bisa null dulu.
+Samakan type Dart vs DB (int/string/datetime). Kalau datetime, simpan sebagai TEXT (ISO8601) atau INTEGER (epoch).
+
+3) Buat function CRUD atau logic lainnya
+Tujuan: memusatkan operasi data (Create, Read, Update, Delete) agar UI tidak berisi SQL.
+
+Biasanya dibuat sebagai:
+
+Repository atau Service yang memanggil DBHelper.
+Fungsi:
+createItem(model) → insert
+getItems() → query list
+getItemById(id) → query detail
+updateItem(model) → update
+deleteItem(id) → delete
+Gotcha:
+
+Semua operasi DB umumnya async → return Future.
+Selalu handle error (try/catch) minimal untuk logging.
+4) Buat UI tanpa function (mock dulu)
+Tujuan: fokus ke layout & interaksi dulu tanpa distraksi data layer.
+
+Yang dikerjakan:
+
+Halaman list (mis. ListView) pakai data dummy.
+Halaman form tambah/edit (TextField, validation minimal).
+Tombol delete / confirm dialog (masih dummy).
+Kenapa begini?
+
+Peserta bisa lihat hasil visual cepat.
+Struktur widget & navigasi jadi jelas sebelum integrasi DB.
+5) Integrasi UI dengan function
+Tujuan: mengganti data dummy menjadi data asli dari CRUD.
+
+Pola integrasi yang umum:
+
+Saat halaman list initState() → panggil getItems() → setState.
+Saat submit form → create/update → kembali ke list → refresh.
+Saat delete → panggil deleteItem → refresh list.
+Gotcha penting:
+
+Jangan lupa refresh state setelah operasi DB (reload data).
+Hindari memanggil query berulang di build(); lakukan di lifecycle / state management.
+Kalau pakai state management (Provider/Bloc/Riverpod), integrasinya lebih rapi, tapi untuk flow belajar bisa mulai dari setState().
+Ringkasan 1 kalimat
+DBHelper (koneksi & tabel) → Model (bentuk data) → CRUD/Repository (operasi) → UI mock (tampilan) → UI terhubung CRUD (aplikasi jadi).
+
+Kalau kamu sebutkan kamu pakai DB apa (sqflite, isar, hive, dll.), aku bisa bantu contoh struktur folder + template file yang sesuai flow ini.

@@ -193,7 +193,7 @@ class _LoginScreenDay16State extends State<LoginScreenDay16> {
                       Image.asset("assets/images/google.png", height: 24),
                       SizedBox(width: 8),
                       Text(
-                        "Lanjut with Google",
+                        "Lanjut dengan Google",
                         style: TextStyle(
                           color: AppColor.greyText,
                           fontWeight: FontWeight.bold,
