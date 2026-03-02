@@ -3,8 +3,9 @@ import 'package:ppkd_b_5/day_14/list.dart';
 import 'package:ppkd_b_5/day_14/list_map.dart';
 import 'package:ppkd_b_5/day_14/model_ui.dart';
 import 'package:ppkd_b_5/day_15/day_15.dart';
-import 'package:ppkd_b_5/day_16/database/preference.dart';
-import 'package:ppkd_b_5/day_16/view/login_screen.dart';
+import 'package:ppkd_b_5/day_16_17/database/preference.dart';
+import 'package:ppkd_b_5/day_16_17/view/cr_siswa.dart';
+import 'package:ppkd_b_5/day_16_17/view/login_screen.dart';
 import 'package:ppkd_b_5/extension/navigator.dart';
 
 class DrawerGlobal extends StatefulWidget {
@@ -34,6 +35,7 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
     ListMapScreen(),
     ModelListViewBuilderDay14(),
     TextFormDay15(),
+    CrSiswaScreenDay17(),
   ];
 
   @override
@@ -76,6 +78,12 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
               title: Text("Text Form Validator"),
               onTap: () {
                 ontapItemDrawer(3);
+              },
+            ),
+            ListTile(
+              title: Text("CR Siswa"),
+              onTap: () {
+                ontapItemDrawer(4);
               },
             ),
             ListTile(

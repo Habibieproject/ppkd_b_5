@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_b_5/day_16/database/preference.dart';
-import 'package:ppkd_b_5/day_16/view/splash_screen.dart';
+import 'package:ppkd_b_5/day_16_17/database/preference.dart';
+import 'package:ppkd_b_5/day_16_17/view/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

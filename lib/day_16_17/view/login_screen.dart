@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_b_5/constant/app_color.dart';
 import 'package:ppkd_b_5/day_14/drawer_global.dart';
-import 'package:ppkd_b_5/day_16/database/preference.dart';
-import 'package:ppkd_b_5/day_16/database/sqflite.dart';
-import 'package:ppkd_b_5/day_16/models/user_model.dart';
+import 'package:ppkd_b_5/day_16_17/database/preference.dart';
+import 'package:ppkd_b_5/day_16_17/database/sqflite.dart';
+import 'package:ppkd_b_5/day_16_17/models/user_model.dart';
+import 'package:ppkd_b_5/day_16_17/utils/decoration_form.dart';
 import 'package:ppkd_b_5/extension/navigator.dart';
 
 class LoginScreenDay16 extends StatefulWidget {
@@ -241,16 +242,6 @@ class _LoginScreenDay16State extends State<LoginScreenDay16> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  InputDecoration decorationConstant({required String hintText}) {
-    return InputDecoration(
-      hintText: hintText,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
-        borderSide: BorderSide(color: AppColor.borderColor),
       ),
     );
   }
