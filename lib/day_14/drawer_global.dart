@@ -3,9 +3,9 @@ import 'package:ppkd_b_5/day_14/list.dart';
 import 'package:ppkd_b_5/day_14/list_map.dart';
 import 'package:ppkd_b_5/day_14/model_ui.dart';
 import 'package:ppkd_b_5/day_15/day_15.dart';
-import 'package:ppkd_b_5/day_16_17/database/preference.dart';
-import 'package:ppkd_b_5/day_16_17/view/cr_siswa.dart';
-import 'package:ppkd_b_5/day_16_17/view/login_screen.dart';
+import 'package:ppkd_b_5/day_16_17_18/database/preference.dart';
+import 'package:ppkd_b_5/day_16_17_18/view/cr_siswa.dart';
+import 'package:ppkd_b_5/day_16_17_18/view/login_screen.dart';
 import 'package:ppkd_b_5/extension/navigator.dart';
 
 class DrawerGlobal extends StatefulWidget {

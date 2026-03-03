@@ -1,5 +1,5 @@
-import 'package:ppkd_b_5/day_16_17/database/sqflite.dart';
-import 'package:ppkd_b_5/day_16_17/models/siswa_model.dart';
+import 'package:ppkd_b_5/day_16_17_18/database/sqflite.dart';
+import 'package:ppkd_b_5/day_16_17_18/models/siswa_model.dart';
 
 class SiswaController {
   static Future<void> registerSiswa(SiswaModel siswa) async {
@@ -13,6 +13,24 @@ class SiswaController {
     final List<Map<String, dynamic>> results = await dbs.query("siswa");
     print(results.map((e) => SiswaModel.fromMap(e)).toList());
     return results.map((e) => SiswaModel.fromMap(e)).toList();
+  }
+
+  static Future<int> updateSiswa(SiswaModel siswa) async {
+    final dbs = await DBHelper.db();
+    if (siswa.id == null) {
+      throw Exception("ID Wajid ada");
+    }
+    return dbs.update(
+      'siswa',
+      siswa.toMap(),
+      where: 'id = ?',
+      whereArgs: [siswa.id],
+    );
+  }
+
+  static Future<int> deleteSiswa(int id) async {
+    final dbs = await DBHelper.db();
+    return dbs.delete('siswa', where: 'id = ?', whereArgs: [id]);
   }
 }
 
