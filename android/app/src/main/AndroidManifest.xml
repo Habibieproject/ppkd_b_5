@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="ppkd_b_5"
+        android:label="Absensi PPKD"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
