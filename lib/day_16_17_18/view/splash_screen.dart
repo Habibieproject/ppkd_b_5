@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ppkd_b_5/constant/app_color.dart';
 import 'package:ppkd_b_5/day_14/drawer_global.dart';
 import 'package:ppkd_b_5/day_16_17_18/database/preference.dart';
-import 'package:ppkd_b_5/day_16_17_18/view/login_screen.dart';
+import 'package:ppkd_b_5/day_30/views/login_screen.dart';
 import 'package:ppkd_b_5/extension/navigator.dart';
 
 class SplashScreenDay16 extends StatefulWidget {
@@ -27,7 +27,7 @@ class _SplashScreenDay16State extends State<SplashScreenDay16> {
     if (data == true) {
       context.pushAndRemoveAll(DrawerGlobal());
     } else {
-      context.pushAndRemoveAll(LoginScreenDay16());
+      context.pushAndRemoveAll(LoginScreenDay30());
     }
   }
 

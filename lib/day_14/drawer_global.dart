@@ -5,9 +5,9 @@ import 'package:ppkd_b_5/day_14/model_ui.dart';
 import 'package:ppkd_b_5/day_15/day_15.dart';
 import 'package:ppkd_b_5/day_16_17_18/database/preference.dart';
 import 'package:ppkd_b_5/day_16_17_18/view/cr_siswa.dart';
-import 'package:ppkd_b_5/day_16_17_18/view/login_screen.dart';
 import 'package:ppkd_b_5/day_29/views/get_user_screen.dart';
 import 'package:ppkd_b_5/day_29/views/get_user_screen_stateful.dart';
+import 'package:ppkd_b_5/day_30/views/login_screen.dart';
 import 'package:ppkd_b_5/extension/navigator.dart';
 import 'package:ppkd_b_5/random_picker/random_picker_screen.dart';
 
@@ -114,7 +114,7 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
               title: Text("Logout"),
               onTap: () {
                 PreferenceHandler().deleteIsLogin();
-                context.pushAndRemoveAll(LoginScreenDay16());
+                context.pushAndRemoveAll(LoginScreenDay30());
               },
             ),
           ],
