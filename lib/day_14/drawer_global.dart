@@ -8,6 +8,7 @@ import 'package:ppkd_b_5/day_16_17_18/view/cr_siswa.dart';
 import 'package:ppkd_b_5/day_29/views/get_user_screen.dart';
 import 'package:ppkd_b_5/day_29/views/get_user_screen_stateful.dart';
 import 'package:ppkd_b_5/day_30/views/login_screen.dart';
+import 'package:ppkd_b_5/day_31/views/map_screen.dart';
 import 'package:ppkd_b_5/extension/navigator.dart';
 import 'package:ppkd_b_5/random_picker/random_picker_screen.dart';
 
@@ -42,6 +43,7 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
     GetUserScreenDay29(),
     GetUserStatefulScreenDay29(),
     RandomPickerScreen(),
+    MapScreenDay31(),
   ];
 
   @override
@@ -108,6 +110,12 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
               title: Text("Random Picker"),
               onTap: () {
                 ontapItemDrawer(7);
+              },
+            ),
+            ListTile(
+              title: Text("Google Maps"),
+              onTap: () {
+                ontapItemDrawer(8);
               },
             ),
             ListTile(
