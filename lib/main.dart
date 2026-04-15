@@ -1,10 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:ppkd_b_5/day_16_17_18/database/preference.dart';
 import 'package:ppkd_b_5/day_16_17_18/view/splash_screen.dart';
+import 'package:ppkd_b_5/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await PreferenceHandler().init();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -40,3 +43,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+//dart pub global activate flutterfire_cli

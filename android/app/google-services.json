@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "251619122913",
+    "project_id": "ppkd-b5",
+    "storage_bucket": "ppkd-b5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251619122913:android:7d03ec29e6dcfff93061a0",
+        "android_client_info": {
+          "package_name": "com.ppkd.absen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm5_KfdNIbIHXQdzBYm3FomIQ-OeGaIO4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
