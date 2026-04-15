@@ -9,6 +9,7 @@ import 'package:ppkd_b_5/day_29/views/get_user_screen.dart';
 import 'package:ppkd_b_5/day_29/views/get_user_screen_stateful.dart';
 import 'package:ppkd_b_5/day_30/views/login_screen.dart';
 import 'package:ppkd_b_5/day_31/views/map_screen.dart';
+import 'package:ppkd_b_5/day_40/views/crud_screen.dart';
 import 'package:ppkd_b_5/extension/navigator.dart';
 import 'package:ppkd_b_5/random_picker/random_picker_screen.dart';
 
@@ -44,6 +45,7 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
     GetUserStatefulScreenDay29(),
     RandomPickerScreen(),
     MapScreenDay31(),
+    CRUDFirebaseScreenDay40(),
   ];
 
   @override
@@ -116,6 +118,12 @@ class _DrawerGlobalState extends State<DrawerGlobal> {
               title: Text("Google Maps"),
               onTap: () {
                 ontapItemDrawer(8);
+              },
+            ),
+            ListTile(
+              title: Text("Firebase CRUD"),
+              onTap: () {
+                ontapItemDrawer(9);
               },
             ),
             ListTile(

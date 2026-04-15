@@ -1,49 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_b_5/absen/api/batch.dart';
-import 'package:ppkd_b_5/absen/api/register.dart';
-import 'package:ppkd_b_5/absen/api/training.dart';
+import 'package:ppkd_b_5/day_39/service/firebase_service.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+class RegisterFirebaseScreen extends StatefulWidget {
+  const RegisterFirebaseScreen({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<RegisterFirebaseScreen> createState() => _RegisterFirebaseScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _RegisterFirebaseScreenState extends State<RegisterFirebaseScreen> {
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-
-  String gender = "L";
-
-  List trainings = [];
-  List batches = [];
-
-  int? selectedTraining;
-  int? selectedBatch;
 
   bool isLoading = false;
 
   @override
   void initState() {
     super.initState();
-    loadData();
-  }
-
-  Future<void> loadData() async {
-    trainings = await getTrainings();
-    batches = await getBatches();
-
-    setState(() {});
   }
 
   Future<void> handleRegister() async {
     if (nameController.text.isEmpty ||
         emailController.text.isEmpty ||
-        passwordController.text.isEmpty ||
-        selectedBatch == null ||
-        selectedTraining == null) {
+        passwordController.text.isEmpty) {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text("Semua field harus diisi")));
@@ -56,13 +36,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
 
     try {
-      await registerUser(
-        name: nameController.text,
+      await FirebaseService.registerUser(
+        username: nameController.text,
         email: emailController.text,
         password: passwordController.text,
-        jenisKelamin: gender,
-        batchId: selectedBatch!,
-        trainingId: selectedTraining!,
       );
 
       if (!mounted) return;
@@ -127,57 +104,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
 
               const SizedBox(height: 16),
-
-              /// GENDER
-              DropdownButtonFormField(
-                initialValue: gender,
-                decoration: inputDecoration("Jenis Kelamin"),
-                items: const [
-                  DropdownMenuItem(value: "L", child: Text("Laki-laki")),
-                  DropdownMenuItem(value: "P", child: Text("Perempuan")),
-                ],
-                onChanged: (v) {
-                  gender = v!;
-                },
-              ),
-
-              const SizedBox(height: 16),
-
-              /// TRAINING
-              DropdownButtonFormField<int>(
-                initialValue: selectedTraining,
-                decoration: inputDecoration("Training"),
-                items: trainings.map<DropdownMenuItem<int>>((e) {
-                  return DropdownMenuItem(
-                    value: e["id"],
-                    child: Text(e["title"]),
-                  );
-                }).toList(),
-                onChanged: (v) {
-                  setState(() {
-                    selectedTraining = v;
-                  });
-                },
-              ),
-
-              const SizedBox(height: 16),
-
-              /// BATCH
-              DropdownButtonFormField<int>(
-                initialValue: selectedBatch,
-                decoration: inputDecoration("Batch"),
-                items: batches.map<DropdownMenuItem<int>>((e) {
-                  return DropdownMenuItem(
-                    value: e["id"],
-                    child: Text("Batch ${e["batch_ke"]}"),
-                  );
-                }).toList(),
-                onChanged: (v) {
-                  setState(() {
-                    selectedBatch = v;
-                  });
-                },
-              ),
 
               const SizedBox(height: 30),
 
